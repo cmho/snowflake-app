@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  sentence_summary: MyString
+  paragraph_summary: MyText
+  page_summary: MyText
+  long_summary: MyText
+
+two:
+  title: MyString
+  sentence_summary: MyString
+  paragraph_summary: MyText
+  page_summary: MyText
+  long_summary: MyText
