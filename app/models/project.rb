@@ -3,7 +3,8 @@ class Project < ApplicationRecord
   has_many :characters
   has_many :scenes
 
-  accepts_nested_attributes_for :characters, :scenes
+  accepts_nested_attributes_for :characters, allow_destroy: true
+  accepts_nested_attributes_for :scenes, allow_destroy: true
   validates_presence_of :user, :title
 
   def step1_complete

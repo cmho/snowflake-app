@@ -1,13 +1,18 @@
 .projects {
-  .character {
+  .nested_project_characters {
     margin-bottom: 20px;
     padding-bottom: 20px;
     border-bottom: 1px $text solid;
 
-    &:last-child {
+    &:last-of-type {
       margin-bottom: 0;
       padding-bottom: 0;
       border-bottom: none;
     }
+  }
+
+  .instructions {
+    margin: 1em 0;
+    font-style: italic;
   }
 }

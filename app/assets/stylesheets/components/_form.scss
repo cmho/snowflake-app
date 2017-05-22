@@ -1,6 +1,22 @@
 form {
   margin-bottom: 1em;
 
+  .field-row {
+    display: flex;
+    flex-wrap: wrap;
+
+    .field {
+      flex-shrink: 1;
+      flex-grow: 1;
+      min-width: 100px;
+      margin-right: 20px;
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+
   .field {
     margin-bottom: 1em;
 

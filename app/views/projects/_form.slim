@@ -34,79 +34,97 @@ ul.tabs
   - if @project.step1_complete
     .tab-content#step2
       h3 Step Two: Paragraph Summary
+      .instructions Expand your sentence summary into a full paragraph.
+      .sentence-summary.show-prev
+        = f.label :sentence_summary
+        p #{@project.sentence_summary}
       .field
         = f.label :paragraph_summary
-        = f.text_area :paragraph_summary
+        = f.text_area :paragraph_summary, class: 'long'
+        ul.tips
+          li Should describe the story setup, major disasters, and ending of the novel.
+          li Probably should have about five sentences.
 
   - if @project.step2_complete
     .tab-content#step3
       h3 Step Three: Characters
 
-      - @project.characters do |character|
-        = fields_for :characters_attributes do |char|
-          .character
-            .field
-              = char.label :name
-              = char.text_field :name
-            .field
-              = char.label :sentence_summary
-              = char.text_field :sentence_summary
-            .field
-              = char.label :motivation
-              = char.text_field :motivation
-            .field
-              = char.label :goal
-              = char.text_field :goal
-            .field
-              = char.label :conflict
-              = char.text_field :conflict
-            .field
-              = char.label :paragraph_summary
-              = char.text_area :paragraph_summary
-
-      .template
-        = fields_for :characters_attributes do |char|
-          .field
-            = char.label :name
-            = char.text_field :name
-          .field
-            = char.label :sentence_summary
-            = char.text_field :sentence_summary
-          .field
-            = char.label :motivation
-            = char.text_field :motivation
-          .field
-            = char.label :goal
-            = char.text_field :goal
-          .field
-            = char.label :conflict
-            = char.text_field :conflict
-          .field
-            = char.label :paragraph_summary
-            = char.text_area :paragraph_summary
+      = f.nested_fields_for :characters do |char|
+        .field
+          = char.label :name
+          = char.text_field :name
+        .field
+          = char.label :sentence_summary
+          = char.text_field :sentence_summary
+        .field
+          = char.label :motivation
+          = char.text_field :motivation
+        .field
+          = char.label :goal
+          = char.text_field :goal
+        .field
+          = char.label :conflict
+          = char.text_field :conflict
+        .field
+          = char.label :paragraph_summary
+          = char.text_area :paragraph_summary
+        .button-row
+          = char.remove_nested_fields_link "Delete", class: 'button'
 
       .button-row.right
-        = link_to "<i class='fa fa-plus'></i> New Character".html_safe, '#', id: 'new-character', class: 'button'
+        = f.add_nested_fields_link :characters, "<i class='fa fa-plus'></i> New Character".html_safe, class: 'button'
 
   - if @project.step3_complete
     .tab-content#step4
       h3 Step Four: Page Summary
       .instructions Expand your paragraph summary, expanding each sentence into its own full paragraph.
+
+      .page-summary.show-prev
+        = f.label :paragraph_summary
+        = raw @markdown.render(@project.paragraph_summary)
+
       .field
         = f.label :page_summary
-        = f.text_area :page_summary
+        = f.text_area :page_summary, class: 'long'
 
   - if @project.step4_complete
     .tab-content#step5
       h3 Steph Five: Expand Characters
-      .field
+
+      = f.nested_fields_for :characters do |char|
+        h4 #{char.object.name}
+        dl
+          dt Sentence Summary
+          dd #{char.object.sentence_summary}
+          dt Motivation
+          dd #{char.object.motivation}
+          dt Goal
+          dd #{char.object.goal}
+          dt Epiphany
+          dd #{char.object.epiphany}
+          dt Conflict
+          dd #{char.object.conflict}
+          dt Paragraph Summary
+          - if char.object.paragraph_summary
+            dd #{raw @markdown.render(char.object.paragraph_summary)}
+          - else
+            dd
+
+        = char.label :long_synopsis
+        = char.text_area :long_synopsis
 
   - if @project.step5_complete
     .tab-content#step6
       h3 Step Six: Expand Summary
+      .instructions Expand your page-length summary, turning each paragraph into a full page of its own.
+
+      .page-summary.show-prev
+        = f.label :page_summary
+        = raw @markdown.render(@project.page_summary)
+
       .field
         = f.label :long_summary
-        = f.text_area :long_summary
+        = f.text_area :long_summary, class: 'long'
 
   - if @project.step6_complete
     .tab-content#step7
@@ -116,7 +134,7 @@ ul.tabs
     .tab-content#step8
       h3 Step Eight: Detail Scenes
 
-      
+
 
 .button-row
   = f.button "Save", type: 'submit', id: 'save'

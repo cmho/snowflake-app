@@ -21,6 +21,7 @@ gem 'coffee-rails', '~> 4.2'
 gem 'slim'
 gem 'font-awesome-rails'
 gem 'redcarpet'
+gem 'nested_form_fields'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 

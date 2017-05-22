@@ -10,6 +10,8 @@ class ProjectsController < ApplicationController
     if (@project.user != current_user)
       redirect_to root_path
     end
+		renderer = Redcarpet::Render::HTML.new(no_links: true, hard_wrap: true, filter_html: true)
+		@markdown = Redcarpet::Markdown.new(renderer, extensions = {})
   end
 
   def new
@@ -32,6 +34,8 @@ class ProjectsController < ApplicationController
     if (@project.user != current_user)
       redirect_to root_path
     end
+		renderer = Redcarpet::Render::HTML.new(no_links: true, hard_wrap: true, filter_html: true)
+		@markdown = Redcarpet::Markdown.new(renderer, extensions = {})
   end
 
   def update
