@@ -10,4 +10,4 @@
       = link_to "View Full", project_path(project), class: 'button'
       = link_to "Edit", edit_project_path(project), class: 'button'
       = form_tag(project_path(project), method: 'DELETE')
-        = button_tag 'Delete', type: 'submit', onClick: 'confirm("Are you sure you want to delete this project?")'
+        = button_tag 'Delete', type: 'submit', onClick: 'return confirm("Are you sure you want to delete this project?")'
