@@ -5,7 +5,7 @@ $(document).ready ->
     $(this).addClass('current').parent().siblings().find('a').removeClass 'current'
     $(sectionId).fadeIn().siblings().fadeOut()
     return
-  $('.tabs a').first().click()
+  $('.tabs a.current').first().click()
   return
 
   $('#new-character').on 'click', (e) ->

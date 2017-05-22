@@ -38,4 +38,26 @@ class Project < ApplicationRecord
   def step8_complete
     step7_complete and self.scenes.present?
   end
+
+  def current_step
+    if step8_complete
+      return 8
+    elsif step7_complete
+      return 7
+    elsif step6_complete
+      return 6
+    elsif step5_complete
+      return 5
+    elsif step4_complete
+      return 4
+    elsif step3_complete
+      return 3
+    elsif step2_complete
+      return 2
+    elsif step1_complete
+      return 1
+    else
+      return 0
+    end
+  end
 end

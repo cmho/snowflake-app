@@ -1,19 +1,19 @@
 ul.tabs
-  li #{link_to "Step 1", "#step1", class: 'current'}
+  li #{link_to "Step 1", "#step1", class: (@project.current_step == 0 ? 'current' : '')}
   - if @project.step1_complete
-    li #{link_to "Step 2", "#step2"}
+    li #{link_to "Step 2", "#step2", class: (@project.current_step == 1 ? 'current' : '')}
   - if @project.step2_complete
-    li #{link_to "Step 3", "#step3"}
+    li #{link_to "Step 3", "#step3", class: (@project.current_step == 2 ? 'current' : '')}
   - if @project.step3_complete
-    li #{link_to "Step 4", "#step4"}
+    li #{link_to "Step 4", "#step4", class: (@project.current_step == 3 ? 'current' : '')}
   - if @project.step4_complete
-    li #{link_to "Step 5", "#step5"}
+    li #{link_to "Step 5", "#step5", class: (@project.current_step == 4 ? 'current' : '')}
   - if @project.step5_complete
-    li #{link_to "Step 6", "#step6"}
+    li #{link_to "Step 6", "#step6", class: (@project.current_step == 5 ? 'current' : '')}
   - if @project.step6_complete
-    li #{link_to "Step 7", "#step7"}
+    li #{link_to "Step 7", "#step7", class: (@project.current_step == 6 ? 'current' : '')}
   - if @project.step7_complete
-    li #{link_to "Step 8", "#step8"}
+    li #{link_to "Step 8", "#step8", class: (@project.current_step == 7 ? 'current' : '')}
 
 .content
   .tab-content#step1
