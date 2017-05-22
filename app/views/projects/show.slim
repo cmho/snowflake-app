@@ -1,1 +1,17 @@
 h2 Project: #{@project.title}
+
+h3 Story Summary
+
+ul.accordion
+  li
+    = link_to "Sentence Summary <i class='ico'></i>".html_safe, "#"
+    .content #{@project.sentence_summary}
+  li
+    = link_to "Paragraph Summary <i class='ico'></i>".html_safe, "#"
+    .content #{raw @project.paragraph_summary.present? ? @markdown.render(@project.paragraph_summary) : ''}
+  li
+    = link_to "Page Summary <i class='ico'></i>".html_safe, "#"
+    .content #{raw @project.page_summary.present? ? @markdown.render(@project.page_summary) : ''}
+  li
+    = link_to "Long Summary <i class='ico'></i>".html_safe, "#"
+    .content #{raw @project.long_summary.present? ? @markdown.render(@project.long_summary) : ''}
