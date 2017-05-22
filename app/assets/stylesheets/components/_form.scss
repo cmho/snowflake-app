@@ -4,10 +4,10 @@ form {
   .field-row {
     display: flex;
     flex-wrap: wrap;
+    justify-content: flex-start;
 
     .field {
       flex-shrink: 1;
-      flex-grow: 1;
       min-width: 100px;
       margin-right: 20px;
 
@@ -41,10 +41,28 @@ input[type="search"],
 input[type="password"],
 input[type="email"] {
   border: 1px $text solid;
+  background-color: $color-white;
   height: 36px;
   line-height: 36px;
   padding: 0 10px;
   width: 100%;
+  font-size: 16px;
+  font-family: "Open Sans", sans-serif;
+  box-sizing: border-box;
+  display: block;
+}
+
+input[type="number"] {
+  max-width: 150px;
+}
+
+select {
+  border: 1px $text solid;
+  background-color: $color-white;
+  border-radius: 0;
+  display: block;
+  height: 36px;
+  line-height: 36px;
   font-size: 16px;
   font-family: "Open Sans", sans-serif;
   box-sizing: border-box;

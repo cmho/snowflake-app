@@ -134,6 +134,26 @@ ul.tabs
     .tab-content#step8
       h3 Step Eight: Detail Scenes
 
+      = f.nested_fields_for :scenes do |scene|
+        .field
+          = scene.label :title
+          = scene.text_field :title
+        .field
+          = scene.label :description
+          = scene.text_field :description
+        .field-row
+          .field
+            = scene.label :character_id, "POV Character"
+            = scene.collection_select :character_id, @project.characters.order(:name), :id, :name
+          .field
+            = scene.label :projected_pages, "Projected # of Pages"
+            = scene.number_field :projected_pages
+        .button-row
+          = scene.remove_nested_fields_link "Delete", class: 'button'
+
+      .button-row.right
+        = f.add_nested_fields_link :scenes, "<i class='fa fa-plus'></i> New Scene".html_safe, class: 'button'
+
 
 
 .button-row
