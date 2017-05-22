@@ -24,7 +24,7 @@ class Project < ApplicationRecord
   end
 
   def step5_complete
-    step4_complete
+    step4_complete and self.characters.where.not(long_synopsis: nil).length > 0
   end
 
   def step6_complete
@@ -32,7 +32,7 @@ class Project < ApplicationRecord
   end
 
   def step7_complete
-    step6_complete
+    step6_complete and self.characters.where.not(additional_information: nil).length > 0
   end
 
   def step8_complete

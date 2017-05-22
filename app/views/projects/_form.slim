@@ -40,7 +40,7 @@ ul.tabs
         p #{@project.sentence_summary}
       .field
         = f.label :paragraph_summary
-        = f.text_area :paragraph_summary, class: 'long'
+        = f.text_area :paragraph_summary
         ul.tips
           li Should describe the story setup, major disasters, and ending of the novel.
           li Probably should have about five sentences.
@@ -129,6 +129,33 @@ ul.tabs
   - if @project.step6_complete
     .tab-content#step7
       h3 Step Seven: Further Expand Characters
+
+      = f.nested_fields_for :characters do |char|
+        h4 #{char.object.name}
+        dl
+          dt Sentence Summary
+          dd #{char.object.sentence_summary}
+          dt Motivation
+          dd #{char.object.motivation}
+          dt Goal
+          dd #{char.object.goal}
+          dt Epiphany
+          dd #{char.object.epiphany}
+          dt Conflict
+          dd #{char.object.conflict}
+          dt Paragraph Summary
+          - if char.object.paragraph_summary
+            dd #{raw @markdown.render(char.object.paragraph_summary)}
+          - else
+            dd
+          dt Long Synopsis
+          - if char.object.long_synopsis
+            dd #{raw @markdown.render(char.object.long_synopsis)}
+          - else
+            dd
+
+        = char.label :additional_information
+        = char.text_area :additional_information
 
   - if @project.step7_complete
     .tab-content#step8
