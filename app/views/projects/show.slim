@@ -4,19 +4,19 @@ h3 Story Summary
 
 ul.accordion
   li
-    = link_to "Sentence Summary <i class='ico'></i>".html_safe, "#"
+    = link_to "Sentence Summary", "#"
     .content #{@project.sentence_summary}
   - if @project.paragraph_summary.present?
     li
-      = link_to "Paragraph Summary <i class='ico'></i>".html_safe, "#"
+      = link_to "Paragraph Summary", "#"
       .content #{raw @markdown.render(@project.paragraph_summary)}
   - if @project.page_summary.present?
     li
-      = link_to "Page Summary <i class='ico'></i>".html_safe, "#"
+      = link_to "Page Summary", "#"
       .content #{raw @markdown.render(@project.page_summary)}
   - if @project.long_summary.present?
     li
-      = link_to "Long Summary <i class='ico'></i>".html_safe, "#"
+      = link_to "Long Summary", "#"
       .content #{raw @markdown.render(@project.long_summary)}
 
 h3 Characters
@@ -24,7 +24,7 @@ h3 Characters
 ul.accordion
   - @project.characters.order(:name).each do |character|
     li
-      = link_to "#{character.name} <i class='ico'></i>".html_safe, '#'
+      = link_to character.name, '#'
       .content
         dl
           dt Sentence Summary
@@ -49,7 +49,7 @@ h3 Scenes
 ul.accordion
   - @project.scenes.each do |scene|
     li
-      = link_to "#{scene.title} <i class='ico'></i>".html_safe, '#'
+      = link_to scene.title, '#'
       .content
         dl
           dt Description

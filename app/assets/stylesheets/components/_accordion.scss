@@ -20,7 +20,7 @@ ul.accordion {
       font-size: 14px;
       box-sizing: border-box;
 
-      .ico {
+      &:after {
         content: "\f067";
         display: inline-block;
         font: normal normal normal 16px/16px FontAwesome;
@@ -31,7 +31,7 @@ ul.accordion {
       }
 
       &.show {
-        .ico {
+        &:after {
           content: "\f068";
         }
 
