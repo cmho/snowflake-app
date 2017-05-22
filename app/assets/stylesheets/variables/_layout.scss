@@ -1,0 +1,22 @@
+body {
+  text-align: center;
+
+  header {
+    text-align: left;
+  }
+
+  main {
+    text-align: left;
+    max-width: 1200px;
+    width: 100%;
+    margin: 50px auto;
+    padding: 0 20px;
+    box-sizing: border-box;
+  }
+
+  &.registrations, &.sessions {
+    main {
+      max-width: 600px;
+    }
+  }
+}

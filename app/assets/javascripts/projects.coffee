@@ -1,3 +1,12 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://coffeescript.org/
+$(document).ready ->
+  $('.tabs a').on 'click', (e) ->
+    e.preventDefault()
+    sectionId = $(this).attr('href')
+    $(this).addClass('current').parent().siblings().find('a').removeClass 'current'
+    $(sectionId).fadeIn().siblings().fadeOut()
+    return
+  $('.tabs a').first().click()
+  return
+
+  $('#new-character').on 'click', (e) ->
+    e.preventDefault()

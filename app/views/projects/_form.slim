@@ -1,0 +1,123 @@
+ul.tabs
+  li #{link_to "Step 1", "#step1", class: 'current'}
+  - if @project.step1_complete
+    li #{link_to "Step 2", "#step2"}
+  - if @project.step2_complete
+    li #{link_to "Step 3", "#step3"}
+  - if @project.step3_complete
+    li #{link_to "Step 4", "#step4"}
+  - if @project.step4_complete
+    li #{link_to "Step 5", "#step5"}
+  - if @project.step5_complete
+    li #{link_to "Step 6", "#step6"}
+  - if @project.step6_complete
+    li #{link_to "Step 7", "#step7"}
+  - if @project.step7_complete
+    li #{link_to "Step 8", "#step8"}
+
+.content
+  .tab-content#step1
+    h3 Step One: Summary
+    .field
+      = f.label :title
+      = f.text_field :title
+
+    .field
+      = f.label :sentence_summary
+      = f.text_field :sentence_summary
+      ul.tips
+        li Try for fewer than 15 words.
+        li Don't name characters, describe them.
+        li Tie together the big picture and the personal picture. What do characters have to lose or win?
+        li Reference one-line blurbs on bestseller lists.
+
+  - if @project.step1_complete
+    .tab-content#step2
+      h3 Step Two: Paragraph Summary
+      .field
+        = f.label :paragraph_summary
+        = f.text_area :paragraph_summary
+
+  - if @project.step2_complete
+    .tab-content#step3
+      h3 Step Three: Characters
+
+      - @project.characters do |character|
+        = fields_for :characters_attributes do |char|
+          .character
+            .field
+              = char.label :name
+              = char.text_field :name
+            .field
+              = char.label :sentence_summary
+              = char.text_field :sentence_summary
+            .field
+              = char.label :motivation
+              = char.text_field :motivation
+            .field
+              = char.label :goal
+              = char.text_field :goal
+            .field
+              = char.label :conflict
+              = char.text_field :conflict
+            .field
+              = char.label :paragraph_summary
+              = char.text_area :paragraph_summary
+
+      .template
+        = fields_for :characters_attributes do |char|
+          .field
+            = char.label :name
+            = char.text_field :name
+          .field
+            = char.label :sentence_summary
+            = char.text_field :sentence_summary
+          .field
+            = char.label :motivation
+            = char.text_field :motivation
+          .field
+            = char.label :goal
+            = char.text_field :goal
+          .field
+            = char.label :conflict
+            = char.text_field :conflict
+          .field
+            = char.label :paragraph_summary
+            = char.text_area :paragraph_summary
+
+      .button-row.right
+        = link_to "<i class='fa fa-plus'></i> New Character".html_safe, '#', id: 'new-character', class: 'button'
+
+  - if @project.step3_complete
+    .tab-content#step4
+      h3 Step Four: Page Summary
+      .instructions Expand your paragraph summary, expanding each sentence into its own full paragraph.
+      .field
+        = f.label :page_summary
+        = f.text_area :page_summary
+
+  - if @project.step4_complete
+    .tab-content#step5
+      h3 Steph Five: Expand Characters
+      .field
+
+  - if @project.step5_complete
+    .tab-content#step6
+      h3 Step Six: Expand Summary
+      .field
+        = f.label :long_summary
+        = f.text_area :long_summary
+
+  - if @project.step6_complete
+    .tab-content#step7
+      h3 Step Seven: Further Expand Characters
+
+  - if @project.step7_complete
+    .tab-content#step8
+      h3 Step Eight: Detail Scenes
+
+      
+
+.button-row
+  = f.button "Save", type: 'submit', id: 'save'
+  = f.button "Save + Continue", type: 'submit', id: 'save-continue'

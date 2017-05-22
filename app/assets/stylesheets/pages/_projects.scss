@@ -1,0 +1,13 @@
+.projects {
+  .character {
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px $text solid;
+
+    &:last-child {
+      margin-bottom: 0;
+      padding-bottom: 0;
+      border-bottom: none;
+    }
+  }
+}

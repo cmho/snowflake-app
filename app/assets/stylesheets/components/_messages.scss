@@ -1,0 +1,30 @@
+.messages {
+  margin-bottom: 1em;
+
+  .msg {
+    padding: 5px 10px;
+    margin: 5px 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    color: $color-white;
+    font-size: 14px;
+
+    a {
+      color: $color-white;
+      text-decoration: none;
+    }
+
+    &.notice {
+      background-color: #333333;
+    }
+
+    &.success {
+      background-color: #006600;
+    }
+
+    &.error {
+      background-color: #660000;
+    }
+  }
+}

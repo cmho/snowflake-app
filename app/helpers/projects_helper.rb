@@ -1,2 +1,2 @@
-module ProjectControllerHelper
+module ProjectsHelper
 end

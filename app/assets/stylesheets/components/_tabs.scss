@@ -1,0 +1,29 @@
+ul.tabs {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+  border-bottom: 1px $text solid;
+  margin: 20px 0;
+
+  li {
+    margin-right: 10px;
+    a {
+      background-color: $text;
+      color: $color-white;
+      font-weight: normal;
+      padding: 5px 10px;
+      display: block;
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: 13px;
+      opacity: .75;
+      transition: .3s;
+
+      &.current {
+        font-weight: bold;
+        opacity: 1;
+      }
+    }
+  }
+}

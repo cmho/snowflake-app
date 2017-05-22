@@ -1,0 +1,5 @@
+h2 New Project
+
+= form_for @project, url: {action: 'create'} do |f|
+  = f.hidden_field :user_id, value: current_user.id
+  = render partial: 'form', locals: {f: f}

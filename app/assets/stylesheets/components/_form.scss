@@ -1,0 +1,65 @@
+form {
+  margin-bottom: 1em;
+
+  .field {
+    margin-bottom: 1em;
+
+    em {
+      font-style: italic;
+      font-size: 14px;
+    }
+
+    .tips {
+      list-style: disc;
+      font-size: 12px;
+      line-height: 16px;
+      margin: 10px 0 10px 20px;
+      font-style: italic;
+    }
+  }
+}
+
+input[type="text"],
+input[type="number"],
+input[type="search"],
+input[type="password"],
+input[type="email"] {
+  border: 1px $text solid;
+  height: 36px;
+  line-height: 36px;
+  padding: 0 10px;
+  width: 100%;
+  font-size: 16px;
+  font-family: "Open Sans", sans-serif;
+  box-sizing: border-box;
+}
+
+textarea {
+  border: 1px $text solid;
+  padding: 10px;
+  line-height: 1.2;
+  width: 100%;
+  display: block;
+  font-size: 16px;
+  font-family: "Open Sans", sans-serif;
+  min-height: 100px;
+  box-sizing: border-box;
+
+  &.long {
+    min-height: 400px;
+  }
+}
+
+input,textarea {
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 6px rgba($text, .5);
+  }
+}
+
+label {
+  font-size: 14px;
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 2px;
+}

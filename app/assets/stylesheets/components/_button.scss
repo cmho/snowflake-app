@@ -1,0 +1,74 @@
+button, .button, input[type="submit"] {
+  color: $color-white;
+  background-color: $text;
+  padding: 1em 2em;
+  position: relative;
+  box-sizing: border-box;
+  text-decoration: none;
+  line-height: 1;
+  overflow: hidden;
+  display: block;
+  z-index: 1;
+  backface-visibility: hidden;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-size: 14px;
+  border: none;
+  font-weight: bold;
+
+  &:before {
+    content: '';
+    z-index: -1;
+    position: absolute;
+    top: 50%;
+    left: 100%;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin: -15px 0 0 1px;
+    background-color: #111111;
+    transform-origin: 100% 50%;
+    transform: scale3d(1,2,1);
+    transition: .3s;
+    transition-timing-function: cubic-bezier(0.7,0,0.9,1);
+    box-sizing: border-box;
+  }
+
+  &:hover {
+    &:before {
+      transform: scale3d(9,9,1);
+    }
+  }
+}
+
+input[type="submit"] {
+  transition: .3s;
+  &:hover {
+    background-color: #111111;
+  }
+}
+
+.button-row {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin: 20px 0;
+
+  .button, button, input[type="submit"] {
+    margin-right: 20px;
+    margin-left: 0;
+  }
+
+  form {
+    margin-bottom: 0;
+  }
+
+  &.right {
+    justify-content: flex-end;
+
+    .button, button, input[type="submit"] {
+      margin-left: 20px;
+      margin-right: 0;
+    }
+  }
+}
