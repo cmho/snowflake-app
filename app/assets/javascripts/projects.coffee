@@ -12,3 +12,5 @@ $(document).ready ->
     e.preventDefault()
     $(this).addClass('show').parent().siblings().find('a').removeClass 'show'
     return
+
+  $('.accordion li:first-child a').click()

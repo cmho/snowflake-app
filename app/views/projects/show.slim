@@ -6,12 +6,55 @@ ul.accordion
   li
     = link_to "Sentence Summary <i class='ico'></i>".html_safe, "#"
     .content #{@project.sentence_summary}
-  li
-    = link_to "Paragraph Summary <i class='ico'></i>".html_safe, "#"
-    .content #{raw @project.paragraph_summary.present? ? @markdown.render(@project.paragraph_summary) : ''}
-  li
-    = link_to "Page Summary <i class='ico'></i>".html_safe, "#"
-    .content #{raw @project.page_summary.present? ? @markdown.render(@project.page_summary) : ''}
-  li
-    = link_to "Long Summary <i class='ico'></i>".html_safe, "#"
-    .content #{raw @project.long_summary.present? ? @markdown.render(@project.long_summary) : ''}
+  - if @project.paragraph_summary.present?
+    li
+      = link_to "Paragraph Summary <i class='ico'></i>".html_safe, "#"
+      .content #{raw @markdown.render(@project.paragraph_summary)}
+  - if @project.page_summary.present?
+    li
+      = link_to "Page Summary <i class='ico'></i>".html_safe, "#"
+      .content #{raw @markdown.render(@project.page_summary)}
+  - if @project.long_summary.present?
+    li
+      = link_to "Long Summary <i class='ico'></i>".html_safe, "#"
+      .content #{raw @markdown.render(@project.long_summary)}
+
+h3 Characters
+
+ul.accordion
+  - @project.characters.order(:name).each do |character|
+    li
+      = link_to "#{character.name} <i class='ico'></i>".html_safe, '#'
+      .content
+        dl
+          dt Sentence Summary
+          dd #{character.sentence_summary}
+          dt Motivation
+          dd #{character.motivation}
+          dt Goal
+          dd #{character.goal}
+          dt Conflict
+          dd #{character.conflict}
+          dt Epiphany
+          dd #{character.epiphany}
+          dt Paragraph Summary
+          dd #{raw character.paragraph_summary.present? ? @markdown.render(character.paragraph_summary) : ''}
+          dt Long Synopsis
+          dd #{raw character.long_synopsis.present? ? @markdown.render(character.long_synopsis) : ''}
+          dt Additional Information
+          dd #{raw character.additional_information.present? ? @markdown.render(character.additional_information) : ''}
+
+h3 Scenes
+
+ul.accordion
+  - @project.scenes.each do |scene|
+    li
+      = link_to "#{scene.title} <i class='ico'></i>".html_safe, '#'
+      .content
+        dl
+          dt Description
+          dd #{scene.description}
+          dt POV Character
+          dd #{scene.character.name}
+          dt Projected # of Pages
+          dd #{scene.projected_pages}
