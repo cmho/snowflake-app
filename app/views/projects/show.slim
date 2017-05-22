@@ -58,3 +58,6 @@ ul.accordion
           dd #{scene.character.name}
           dt Projected # of Pages
           dd #{scene.projected_pages}
+
+.button-row.right
+  = link_to "Edit Project", project_path(@project), class: 'button'
