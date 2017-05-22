@@ -91,6 +91,8 @@ ul.tabs
     .tab-content#step5
       h3 Steph Five: Expand Characters
 
+      .instructions Write up a synopsis of each character—about a page for major ones, and a half-page for minor ones—that tell the story from their point of view.
+
       = f.nested_fields_for :characters do |char|
         h4 #{char.object.name}
         dl
@@ -130,6 +132,8 @@ ul.tabs
     .tab-content#step7
       h3 Step Seven: Further Expand Characters
 
+      .instructions Take what you've written about your characters so far and expand on it—likes and dislikes, history, family, etc.—until they feel like real, well-rounded people.
+
       = f.nested_fields_for :characters do |char|
         h4 #{char.object.name}
         dl
@@ -160,6 +164,8 @@ ul.tabs
   - if @project.step7_complete
     .tab-content#step8
       h3 Step Eight: Detail Scenes
+
+      .instructions Lay out the scenes that emerge from your long plot outline with a brief description and the POV character. Try and estimate the number of pages you think it'll take.
 
       = f.nested_fields_for :scenes do |scene|
         .field
