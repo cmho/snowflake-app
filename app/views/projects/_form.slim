@@ -202,4 +202,5 @@ ul.tabs
         = f.add_nested_fields_link :scenes, "<i class='fa fa-plus'></i> New Scene".html_safe, class: 'button'
 
 .button-row
-  = f.button "Save", type: 'submit', id: 'save'
+  = f.button "Save", type: 'submit', name: 'commit', value: 'save', id: 'save'
+  = f.button "Save + Exit", type: 'submit', name: 'commit', value: 'save-exit', id: 'save-exit'

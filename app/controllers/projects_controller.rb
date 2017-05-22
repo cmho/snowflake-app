@@ -22,7 +22,11 @@ class ProjectsController < ApplicationController
     @project = Project.new(projects_params)
     if @project.save!
       flash[:success] = "Your new project, \"#{@project.title},\" has been saved."
-      redirect_to edit_project_path(@project)
+      if params[:commit] == "save-exit"
+        redirect_to project_path(@project)
+      else
+        redirect_to edit_project_path(@project)
+      end
     else
       flash[:error] = "There was an error saving your new project. Please try again."
       redirect_to new_project_path
@@ -42,7 +46,11 @@ class ProjectsController < ApplicationController
     @project = Project.find(params[:id])
     if @project.update_attributes(projects_params)
       flash[:success] = "Your project, \"#{@project.title},\" was successfully updated."
-      redirect_to edit_project_path(@project)
+      if params[:commit] == "save-exit"
+        redirect_to project_path(@project)
+      else
+        redirect_to edit_project_path(@project)
+      end
     else
       flash[:error] = "There was an error saving your project. Please try again."
       redirect_to edit_project_path(@project)
