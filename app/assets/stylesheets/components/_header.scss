@@ -6,16 +6,8 @@ header {
   padding: 0 40px;
   border-bottom: 1px $text solid;
 
-  nav {
-    ul {
-      display: flex;
-      margin: 0;
-      padding: 0;
-      align-items: center;
-    }
-  }
-
   @media only screen and (max-width: 768px) {
     padding: 0 20px;
+    height: 80px;
   }
 }

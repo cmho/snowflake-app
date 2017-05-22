@@ -56,15 +56,29 @@ ul.tabs
         .field
           = char.label :sentence_summary
           = char.text_field :sentence_summary
+          ul.tips
+            li Summarize the character's personal storyline.
         .field
           = char.label :motivation
           = char.text_field :motivation
+          ul.tips
+            li What do they want abstractly?
         .field
           = char.label :goal
           = char.text_field :goal
+          ul.tips
+            li What do they want concretely?
         .field
           = char.label :conflict
           = char.text_field :conflict
+          ul.tips
+            li What prevents them from reaching their goal?
+        .field
+          = char.label :epiphany
+          = char.text_field :epiphany
+          ul.tips
+            li What do they learn?
+            li How do they change?
         .field
           = char.label :paragraph_summary
           = char.text_area :paragraph_summary

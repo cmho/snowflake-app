@@ -12,6 +12,10 @@ body {
     margin: 50px auto;
     padding: 0 20px;
     box-sizing: border-box;
+
+    @media only screen and (max-width: 768px) {
+      margin: 25px auto;
+    }
   }
 
   &.registrations, &.sessions {
